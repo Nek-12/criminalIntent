@@ -26,6 +26,8 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
     private lateinit var dateButton: Button
     private lateinit var titleField: EditText
     private lateinit var solvedCheckBox: CheckBox
+    private lateinit var requiresPoliceCheckBox: CheckBox
+
     private val cdvm: CrimeDetailViewModel by lazy {
         ViewModelProvider(this).get(CrimeDetailViewModel::class.java)
     }
@@ -46,6 +48,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
         titleField = view.findViewById(R.id.crime_title)
         dateButton = view.findViewById(R.id.crime_date)
         solvedCheckBox = view.findViewById(R.id.crime_solved)
+        requiresPoliceCheckBox = view.findViewById(R.id.requires_police)
         return view
     }
 
@@ -69,6 +72,12 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
             }
         }
 
+        requiresPoliceCheckBox.apply {
+            setOnCheckedChangeListener { _,
+                isChecked -> crime.requiresPolice = isChecked
+            }
+        }
+
         dateButton.setOnClickListener {
             DatePickerFragment.newInstance(crime.date).apply {
                 setTargetFragment(this@CrimeFragment, REQUEST_CODE_DATE)
@@ -78,7 +87,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
 
         val titleWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("Not yet implemented")
+                //unneeded
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -86,7 +95,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
+                //unneeded
             }
         }
 
@@ -98,6 +107,10 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
         dateButton.text = DateFormat.format(CRIME_DATE_FORMAT, crime.date)
         solvedCheckBox.apply {
             isChecked = crime.isSolved
+            jumpDrawablesToCurrentState()
+        }
+        requiresPoliceCheckBox.apply {
+            isChecked = crime.requiresPolice
             jumpDrawablesToCurrentState()
         }
     }
