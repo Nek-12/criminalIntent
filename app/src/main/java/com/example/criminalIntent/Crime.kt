@@ -14,6 +14,7 @@ data class Crime(
     var date: Date = Date(),
     var isSolved: Boolean = false,
     var requiresPolice: Boolean = false,
+    var suspect: String = ""
 ) {
 
     override fun equals(other: Any?): Boolean {

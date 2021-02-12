@@ -26,6 +26,13 @@ android:layout_gravity="bottom">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Wed Nov 14 11:56 EST 2018"/>
+
+    <Button
+            android:id="@+id/crime_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="12:00"/>
+
     <CheckBox
             android:id="@+id/crime_solved"
             android:layout_width="wrap_content"
@@ -38,4 +45,22 @@ android:layout_gravity="bottom">
             android:layout_height="wrap_content"
             android:text="@string/crime_requires_police_label"
             android:layout_gravity="end"/>
+
+    <Button
+            android:id="@+id/crime_suspect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_suspect_text"/>
+    <Button
+            android:id="@+id/crime_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_report_text"/>
+
+    <Button
+            android:id="@+id/call_suspect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/call_the_suspect"/>
+
 </LinearLayout>

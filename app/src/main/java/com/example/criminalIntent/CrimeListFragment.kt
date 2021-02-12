@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-private const val TAG = "CrimeListFragment"
-const val CRIME_DATE_FORMAT = "MMM dd, EEEE yyyy"
+const val CRIME_LIST_TAG = "CrimeListFragment"
 
 //extend Boolean
 val Boolean.int
@@ -75,7 +74,7 @@ class CrimeListFragment : Fragment() {
             viewLifecycleOwner,
             { crimes ->
                 crimes?.let {
-                    Log.i(TAG, "Got crimes ${crimes.size}")
+                    Log.i(CRIME_LIST_TAG, "Got crimes ${crimes.size}")
                     updateUI(crimes)
                 }
             })
@@ -111,7 +110,7 @@ class CrimeListFragment : Fragment() {
             emptyListButton.visibility = View.GONE
         }
 
-        Log.d(TAG, "submitted list: $crimes")
+        Log.d(CRIME_LIST_TAG, "submitted list: $crimes")
     }
 
     override fun onDetach() {
@@ -138,7 +137,7 @@ class CrimeListFragment : Fragment() {
         fun bind(crime: Crime) {
             this.crime = crime
             titleTextView.text = this.crime.title
-            dateTextView.text = DateFormat.format(CRIME_DATE_FORMAT, this.crime.date)
+            dateTextView.text = DateFormat.format(CRIME_DATETIME_FORMAT, this.crime.date)
             solvedIndicator.visibility = if (crime.isSolved) {
                 View.VISIBLE
             } else {
@@ -184,7 +183,7 @@ class CrimeListFragment : Fragment() {
 
 object CrimeDiffCallback : DiffUtil.ItemCallback<Crime>() {
     override fun areItemsTheSame(oldItem: Crime, newItem: Crime): Boolean {
-        Log.d(TAG, "called are ItemsTheSame, res: ${oldItem.id == newItem.id}")
+        Log.d(CRIME_LIST_TAG, "called are ItemsTheSame, res: ${oldItem.id == newItem.id}")
         return oldItem.id == newItem.id
 
     }
