@@ -37,6 +37,7 @@ private const val REQUEST_CODE_DATE = 0
 private const val REQUEST_CODE_CONTACT = 1
 private const val REQUEST_CODE_TIME = 2
 private const val REQUEST_CODE_PHOTO = 3
+private const val ACESSIBILITY_POST_DELAY = 500
 
 const val CRIME_DATE_FORMAT = "MMM dd, EEEE, yyyy"
 const val CRIME_TIME_FORMAT = "HH:MM"
@@ -294,6 +295,9 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks, TimePickerFragme
                     photoUri,
                     Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
+                view?.postDelayed({
+                   view?.announceForAccessibility(getString(R.string.crime_photo_set_accessibility))
+                }, ACESSIBILITY_POST_DELAY.toLong())
                 //updatePhotoView()
             }
         }

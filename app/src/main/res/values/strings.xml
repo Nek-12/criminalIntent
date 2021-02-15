@@ -29,6 +29,7 @@
     </string>
     <string name="crime_photo_image_description">Crime scene photo (set)</string>
     <string name="delete_crime">Delete</string>
+    <string name="crime_photo_set_accessibility">Crime photo was set</string>
 
 
 </resources>

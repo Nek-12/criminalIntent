@@ -30,5 +30,6 @@
     </string>
     <string name="crime_photo_image_description">Фото преступления (есть изображение)</string>
     <string name="delete_crime">Удалить</string>
+    <string name="crime_photo_set_accessibility">Фото было добавлено</string>
 
 </resources>
