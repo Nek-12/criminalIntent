@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import java.lang.IllegalStateException
 import java.util.*
 
 
@@ -96,5 +97,13 @@ class MainActivity : AppCompatActivity(), Callbacks, CrimeFragmentCallbacks {
         } else {
             (currentFragment as CrimeFragment).onContactsPermissionDenied()
         }
+    }
+
+    override fun deleteCrimePressed() {
+        val currentFragment =
+            supportFragmentManager.findFragmentByTag(CRIME_FRAGMENT_TAG) ?: throw IllegalStateException("The " +
+                    "crime fragment wants to remove itself but is not on top of the stack")
+        supportFragmentManager.beginTransaction().remove(currentFragment).commit()
+        supportFragmentManager.popBackStack()
     }
 }

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:layout_margin="16dp"
+                                                   android:layout_gravity="bottom">
+
+    <ImageButton
+            android:id="@+id/add_photo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/sharp_camera_alt_black_24dp"
+            app:layout_constraintStart_toEndOf="@+id/crime_report"
+            app:layout_constraintBottom_toTopOf="@+id/crime_time" android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="@+id/crime_time"
+            app:layout_constraintTop_toTopOf="@+id/crime_report"/>
+
+    <ImageView
+            android:id="@+id/crime_photo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            android:cropToPadding="true"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@+id/crime_time"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_title_label" android:id="@+id/textView"
+            app:layout_constraintBottom_toTopOf="@+id/crime_title" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+            android:id="@+id/crime_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/crime_title_hint"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:inputType="text" android:autofillHints="" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
+    <TextView
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_details_label"
+            android:id="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/crime_solved"/>
+    <Button
+            android:id="@+id/crime_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Wed Nov 14 11:56 EST 2018"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/call_suspect"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"/>
+    <Button
+            android:id="@+id/crime_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12:00"
+            app:layout_constraintStart_toEndOf="@+id/crime_date"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/crime_date"/>
+
+
+    <CheckBox
+            android:id="@+id/crime_solved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_solved_label"
+            android:layout_gravity="end"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toTopOf="@+id/crime_report"
+            android:layout_marginStart="8dp"/>
+    <CheckBox
+            android:id="@+id/requires_police"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_requires_police_label"
+            android:layout_gravity="end"
+            app:layout_constraintBottom_toTopOf="@+id/crime_report"
+            app:layout_constraintStart_toEndOf="@+id/crime_solved"
+            android:layout_marginStart="8dp"/>
+    <Button
+            android:id="@+id/crime_suspect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_suspect_text"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/call_suspect"
+            android:layout_marginStart="8dp"/>
+    <Button
+            android:id="@+id/crime_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_report_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/crime_date"
+            android:layout_marginBottom="8dp" android:layout_marginStart="8dp"/>
+    <Button
+            android:id="@+id/call_suspect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/call_the_suspect"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

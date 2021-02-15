@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import java.io.File
 import java.util.*
 
 
@@ -20,11 +21,17 @@ class CrimeDetailViewModel : ViewModel() {
 
     fun loadCrime(crimeId: UUID) {
         crimeIdLiveData.value = crimeId
-        Log.d(TAG,"loaded crime: ${crimeId}")
+        Log.d(TAG,"loaded crime: $crimeId")
     }
     fun saveCrime(crime: Crime) {
         crimeRepository.updateCrime(crime)
-        Log.d(TAG,"updated crime: ${crime.toString()}")
+        Log.d(TAG,"updated crime: $crime")
+    }
+    fun getPhotoFile(crime: Crime): File {
+        return crimeRepository.getPhotoFile(crime)
+    }
+    fun deleteCrime(crime: Crime) {
+        crimeRepository.deleteCrime(crime)
     }
 
 

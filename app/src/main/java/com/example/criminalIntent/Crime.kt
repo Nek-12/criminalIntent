@@ -16,6 +16,9 @@ data class Crime(
     var requiresPolice: Boolean = false,
     var suspect: String = ""
 ) {
+    val photoFileName
+        get() = "IMG_$id.jpg"
+
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
