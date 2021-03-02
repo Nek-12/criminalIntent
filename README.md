@@ -12,3 +12,9 @@ Android sample application to manage workplace crimes
 * Menu items
 * ViewBinding
 * Callbacks
+* Manifest
+* permissions
+* Intents
+* Dialogs
+* File Storage
+* Bundles
